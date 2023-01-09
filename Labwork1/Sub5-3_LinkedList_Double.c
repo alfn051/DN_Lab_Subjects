@@ -1,0 +1,277 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+	int data;
+	struct node* lLink;
+	struct node* rLink;
+}; typedef struct node node;
+
+node* head = NULL;
+
+node* create(int data) {
+	node* cur = (node*)malloc(sizeof(node));
+	if (cur == NULL) {
+		printf("노드 생성을 위한 메모리 할당에 문제가 있습니다.\n");
+		return NULL;
+	}
+	cur->data = data;
+	cur->lLink = NULL;
+	cur->rLink = NULL;
+	return cur;
+}
+
+void input() {
+	int data;
+	while (1) {
+		printf("\n삽입할 데이터값을 입력하시오 : ");
+		if (scanf_s("%d", &data) == 0) {
+			printf("\n숫자만 입력하시오\n");
+			rewind(stdin);
+		}
+		else { break; }
+	}
+	node* cur = create(data);
+	if (cur == NULL) {
+		printf("동적 메모리 할당에 문제가 있습니다.");
+		exit(1);
+	}
+	printf("\n");
+	node* currentNode = head;
+	if (head == NULL) {
+		head = cur;
+		return;
+	}
+	while (currentNode->lLink != NULL) {
+		currentNode = currentNode->lLink;
+	}
+	currentNode->lLink = cur;
+	cur->rLink = currentNode;
+	return;
+}
+
+void output() {
+	int reverse = 1;
+	while (1) {
+		printf("\n정방향으로 출력하려면 1 을 역방향으로 출력하려면 2를 입력하시오 1 / 2 : ");
+		if (scanf_s("%d", &reverse) == 0) {
+			printf("\n숫자만 입력하시오\n");
+			rewind(stdin);
+		}
+		else {
+			if (reverse != 1 && reverse != 2) {
+				printf("\n1 이나 2 만 입력하시오\n");
+			}
+			else { break; }
+		}
+	}
+	printf("\n");
+	if (reverse == 1) {
+		if (head == NULL) {
+			printf("연결리스트에 노드가 존재하지 않습니다.\n");
+			return;
+		}
+		node* currentNode = head;
+		while (currentNode != NULL) {
+			printf("%d   ", currentNode->data);
+			currentNode = currentNode->lLink;
+		}
+	}if (reverse == 2) {
+		if (head == NULL) {
+			printf("연결리스트에 노드가 존재하지 않습니다.\n");
+			return;
+		}
+		node* currentNode = head;
+		while (currentNode->lLink != NULL) {
+			currentNode = currentNode->lLink;
+		}
+		while (currentNode != NULL) {
+			printf("%d   ", currentNode->data);
+			currentNode = currentNode->rLink;
+		}
+	}
+	
+	printf("\n");
+}
+
+void searchNode(int num) {
+	int count = 1;
+	int finded = 0;
+	node* currentNode = head;
+	printf("데이터 (%d) 는 ", num);
+	while (currentNode != NULL) {
+		if (currentNode->data == num) {
+			printf("(%d번째 노드) ", count);
+			finded = 1;
+		}
+		currentNode = currentNode->lLink;
+		count++;
+	}
+	if (finded == 1) {
+		printf("에서 검색되었습니다.\n");
+	}
+	else {
+		printf(" 검색되지 않았습니다.\n");
+	}
+	return;
+}
+
+void search() {
+	int num;
+	while (1) {
+		printf("\n검색할 데이터값을 입력하시오 : ");
+		if (scanf_s("%d", &num) == 0) {
+			printf("\n숫자만 입력하시오\n");
+			rewind(stdin);
+		}
+		else { break; }
+	}
+	searchNode(num);
+	return;
+}
+
+void deleteNode(int num) {
+	node* currentNode = head;
+	node* temp;
+	if (head->data == num) {	//데이터가 첫번째 노드에 있을때
+		head = head->lLink;
+		head->rLink = NULL;
+		free(currentNode);
+		printf("데이터 (%d) 를 삭제하였습니다.\n", num);
+		return;
+	}
+	while (currentNode != NULL) {
+		if (currentNode->lLink->data == num) {	//데이터가 잇는 바로 전 노드를 찾음
+			temp = currentNode->lLink;	//삭제할 노드를 temp가 가리킴
+			currentNode->lLink = temp->lLink;
+			if (currentNode->lLink != NULL) {
+				currentNode->lLink->rLink = currentNode;
+			}
+			free(temp);
+			printf("데이터 (%d) 를 삭제하였습니다.\n", num);
+			return;
+		}
+		else {
+			currentNode = currentNode->lLink;
+		}
+	}
+}
+
+void deleteSelect(int num) {	//삭제할 데이터가 여러개 있을 때 원하는 노드만 선택해서 지우는 함수
+	node* currentNode = head;
+	node* temp;
+	int nodeNum;
+	int count = 2;
+	int finded = 0;
+	searchNode(num);
+	while (1) {
+		printf("\n몇번째 노드에 있는 데이터 (%d) 를 삭제하시겠습니까? : ", num);
+		if (scanf_s("%d", &nodeNum) == 0) {
+			printf("\n숫자만 입력하시오\n");
+			rewind(stdin);
+		}
+		else { break; }
+	}
+	if (nodeNum == 1) {	//데이터가 첫번째 노드에 있을때
+		if (head->data == num) {
+			head = head->lLink;
+			head->rLink = NULL;
+			free(currentNode);
+			printf("(1) 번째 노드에 있는 데이터 (%d) 를 삭제하였습니다.\n", num);
+			return;
+		}
+		else {
+			printf("선택하신 노드에는 해당 데이터가 존재하지 않습니다.\n");
+			return;
+		}
+	}
+	while (currentNode != NULL) {
+		if (count == nodeNum) {	//데이터가 잇는 바로 전 노드를 찾음
+			if (currentNode->lLink->data == num) {
+				temp = currentNode->lLink;	//삭제할 노드를 temp가 가리킴
+				currentNode->lLink = temp->lLink;
+				if (currentNode->lLink != NULL) {
+					currentNode->lLink->rLink = currentNode;
+				}
+				free(temp);
+				printf("(%d) 번째 노드에 있는 데이터 (%d) 를 삭제하였습니다.\n", nodeNum, num);
+				return;
+			}
+		}
+		currentNode = currentNode->lLink;
+		count++;
+	}
+	printf("선택하신 노드에는 해당 데이터가 존재하지 않습니다.\n");
+	return;
+}
+
+void delete() {
+	int num;
+	int count = 0;
+	while (1) {
+		printf("\n삭제할 데이터값을 입력하시오 : ");
+		if (scanf_s("%d", &num) == 0) {
+			printf("\n숫자만 입력하시오\n");
+			rewind(stdin);
+		}
+		else { break; }
+	}
+	node* currentNode = head;
+	while (currentNode != NULL) {	//데이터가 몇개 있는지 검사
+		if (currentNode->data == num) {
+			count++;
+		}
+		currentNode = currentNode->lLink;
+	}
+	if (count == 0) {
+		printf("데이터 (%d) 는 발견되지 않았습니다.", num);
+		return;
+	}
+	if (count == 1) {
+		deleteNode(num);
+		return;
+	}
+	if (count > 1) {
+		deleteSelect(num);
+		return;
+	}
+}
+
+int main(void) {
+	int loop = 1;
+	while (loop) {
+		printf("\n**************************************\n");
+		printf("* 1.입력 2.출력 3.검색 4.삭제 5.종료 *\n");
+		printf("**************************************\n");
+
+		int select;
+		printf("입력할 번호를 입력하세요 : ");
+		if (scanf_s("%d", &select) == 0) {
+			rewind(stdin);
+			select = 0;
+		}
+		switch (select) {
+		case 1:
+			input();
+			break;
+		case 2:
+			output();
+			break;
+		case 3:
+			search();
+			break;
+		case 4:
+			delete();
+			break;
+		case 5:
+			printf("\n\n-----시스템을 종료합니다.-----\n\n");
+			loop = 0;
+			break;
+		default:
+			printf("1 ~ 7 의 숫자만 입력하시오\n");
+			select = 0;
+			break;
+		}
+
+	}
+}
