@@ -27,19 +27,19 @@
     <ClCompile Include="Sub4_StudentSystem.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sub3-2_50Fac_Recursion.c">
+    <ClCompile Include="Sub3-2_50FacRecursion.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sub5-1_LinkedList_Singly.c">
+    <ClCompile Include="Sub5-1_LinkedListSingly.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sub5-2_LinkedList_Circular.c">
+    <ClCompile Include="Sub5-2_LinkedListCircular.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sub5-3_LinkedList_Double.c">
+    <ClCompile Include="Sub5-3_LinkedListDouble.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sub6_Binary_Search_Tree.c">
+    <ClCompile Include="Sub6_BinarySearchTree.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

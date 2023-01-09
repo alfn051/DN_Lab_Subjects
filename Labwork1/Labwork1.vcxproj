@@ -137,22 +137,22 @@
     <ClCompile Include="Sub3-1_50Factorial.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Sub3-2_50Fac_Recursion.c">
+    <ClCompile Include="Sub3-2_50FacRecursion.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Sub4_StudentSystem.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Sub5-2_LinkedList_Circular.c">
+    <ClCompile Include="Sub5-2_LinkedListCircular.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Sub5-1_LinkedList_Singly.c">
+    <ClCompile Include="Sub5-1_LinkedListSingly.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Sub5-3_LinkedList_Double.c">
+    <ClCompile Include="Sub5-3_LinkedListDouble.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Sub6_Binary_Search_Tree.c">
+    <ClCompile Include="Sub6_BinarySearchTree.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>

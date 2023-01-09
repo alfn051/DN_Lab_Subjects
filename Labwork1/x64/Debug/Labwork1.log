@@ -1,8 +1,8 @@
-﻿  Sub6_Binary_Search_Tree.c
-C:\Users\UIT801-\source\repos\Labwork1\Labwork1\Sub6_Binary_Search_Tree.c(147,3): warning C4033: 'deleteZeroDeg'은(는) 값을 반환해야 합니다.
-C:\Users\UIT801-\source\repos\Labwork1\Labwork1\Sub6_Binary_Search_Tree.c(158,2): warning C4033: 'deleteZeroDeg'은(는) 값을 반환해야 합니다.
-C:\Users\UIT801-\source\repos\Labwork1\Labwork1\Sub6_Binary_Search_Tree.c(163,3): warning C4033: 'deleteSingleDeg'은(는) 값을 반환해야 합니다.
-C:\Users\UIT801-\source\repos\Labwork1\Labwork1\Sub6_Binary_Search_Tree.c(184,2): warning C4033: 'deleteSingleDeg'은(는) 값을 반환해야 합니다.
-C:\Users\UIT801-\source\repos\Labwork1\Labwork1\Sub6_Binary_Search_Tree.c(217,3): warning C4013: 'deleteDoubleDeg'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\UIT801-\source\repos\Labwork1\Labwork1\Sub6_Binary_Search_Tree.c(234): warning C4716: 'deleteDoubleDeg': 값을 반환해야 합니다.
+﻿  Sub6_BinarySearchTree.c
+C:\Users\UIT801-\source\repos\Labwork1\Labwork1\Sub6_BinarySearchTree.c(147,3): warning C4033: 'deleteZeroDeg'은(는) 값을 반환해야 합니다.
+C:\Users\UIT801-\source\repos\Labwork1\Labwork1\Sub6_BinarySearchTree.c(158,2): warning C4033: 'deleteZeroDeg'은(는) 값을 반환해야 합니다.
+C:\Users\UIT801-\source\repos\Labwork1\Labwork1\Sub6_BinarySearchTree.c(163,3): warning C4033: 'deleteSingleDeg'은(는) 값을 반환해야 합니다.
+C:\Users\UIT801-\source\repos\Labwork1\Labwork1\Sub6_BinarySearchTree.c(184,2): warning C4033: 'deleteSingleDeg'은(는) 값을 반환해야 합니다.
+C:\Users\UIT801-\source\repos\Labwork1\Labwork1\Sub6_BinarySearchTree.c(217,3): warning C4013: 'deleteDoubleDeg'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\UIT801-\source\repos\Labwork1\Labwork1\Sub6_BinarySearchTree.c(234): warning C4716: 'deleteDoubleDeg': 값을 반환해야 합니다.
   Labwork1.vcxproj -> C:\Users\UIT801-\source\repos\Labwork1\x64\Debug\DNLabSubject.exe
